@@ -15,6 +15,8 @@ import os
 import tensorflow as tf
 from keras.utils import load_img, img_to_array
 from keras.applications.vgg16 import preprocess_input
+import winsound
+
 global fileName
 window = tk.Tk()
 
@@ -71,6 +73,8 @@ def analyze():
     # Print the predicted class label
     predicted_class_label = class_labels[predicted_class_index]
     print(f'Predicted Class: {predicted_class_label}')
+    if predicted_class_label == 'IntensePain':
+        winsound.Beep(500, 1000)
 
     Pain = tk.Label(text='THE PREDICTED PAIN CLASS IS :' + predicted_class_label, bg="blue",
                     fg="white", font=("", 15))
